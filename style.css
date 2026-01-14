@@ -1,16 +1,848 @@
-/* Footer Section Starts from here.... */
-html, body{
+
+/* 1. Global Reset & Base Styles */
+:root {
+    --purple: #5a0a6d;
+    --dark-purple: #4b006e;
+    --gold: #b8860b;
+    --light-gray: #f4f4f4;
+    --text-dark: #333;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Reusable Layout Components */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Layout Containers */
+.top-container, .nav-container {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0 15px;
+}
+
+.top-bar {
+  background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  padding: 4px 0; 
+  font-size: 13px;
+  width: 100%;
+ 
+}
+
+.top-container {
+  width: 100%;           
+  max-width: 100%;      
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 40px;       
+  box-sizing: border-box;
+}
+
+.top-links {
+  display: flex;
+  align-items: center;
+}
+
+.top-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 0 8px; 
+}
+
+.navbarupper {
+  display: flex;
+  align-items: center;
+}
+.university-logo {
+  margin-left: auto; 
+}
+.university-logo img {
+  height: 40px;    
+  width: auto;     
+  display: block; 
+}
+
+/* Responsiveness: Stack or Hide on small screens */
+@media (max-width: 600px) {
+  .top-container {
+    flex-direction: column; 
+    text-align: center;
+    gap: 5px;
+  }
+  
+  .top-links {
+    font-size: 11px; 
+    justify-content: center;
+  }
+}
+/* 2. Main Navigation */
+
+.top-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    padding-right: 50px;
+    position: relative;
+    background: white;
+}
+
+.logo-box {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    background-color:purple;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.logo-img{
+    width: 100px;
+    align-items: center;
+}
+.logo-text {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 10px;
+    line-height: 1.2;
+}
+
+.sanskrit-motto {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+/* Navigation Links */
+.navigation ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation ul li {
+    margin: 0 15px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.navigation ul li.active a {
+    font-weight: bold;
+}
+
+.search-icon {
+    background-color: purple;
+    color: white;
+    padding: 15px 20px;
+    margin-right: -50px !important; /* Pulls to edge */
+}
+
+.search-icon a {
+    color: white !important;
+    font-size: 18px;
+}
+
+@media (max-width: 480px) {
+    .logo-box {
+        width: 120px;
+    }
+    
+    .logo-text {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* Tablet and Mobile (Devices smaller than 768px) */
+@media (max-width: 768px) {
+    
+    .top-nav {
+        flex-direction: column;
+        height: auto;
+        padding-right: 0;
+        padding-top: 20px; 
+    }
+
+    .logo-box {
+        top: 0;
+        position: relative; /* Change from absolute */
+        left: auto;
+        transform: none;
+        margin: 0 auto 20px auto; /* Centers it and adds space below */
+        width: 150px;
+        height: auto;
+    }
+
+    .logo-img {
+        width: 60px; 
+    }
+    .navigation {
+        width: 100%;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navigation ul li {
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+    .search-icon {
+        margin-right: 0 !important;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    
+}
+
+/* --- MEGA MENU DESKTOP STYLES --- */
+
+
+/* 1. Ensure the parent container can handle full width */
+.top-nav {
+    position: relative;
+    width: 100%;
+}
+
+/* 2. The Mega Menu Box */
+.mega-menu {
+    display: none; 
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: #000 !important; /* Pure black background */
+    z-index: 9;
+    padding: 40px 0;
+    box-sizing: border-box;
+}
+
+.is-visible {
+    display: block !important;
+}
+
+/* 3. The Grid Layout - This makes the 3 columns sit side-by-side */
+.mega-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    max-width: 1200px; /* Centers the content like the original */
+    margin: 0 auto;
+    padding: 0 50px;
+    gap: 20px;
+}
+
+/* 4. Column & Link Styling */
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.mega-menu a {
+    color: #999 !important; /* Grey text like the image */
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 0;
+    text-align: left;
+    transition: color 0.3s;
+}
+
+.mega-menu a:hover {
+    color: #fff !important; /* White text on hover */
+}
+
+/* 5. The Golden Underline Link */
+.mega-menu a.highlight {
+    color: #ffcc00 !important; /* Golden color */
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+    margin-bottom: 10px;
+}
+
+/* Responsive: Only stack on very small mobile screens */
+@media (max-width: 768px) {
+    .mega-content {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+}
+
+
+/* 4. Hero Section */
+.page-banner {
+    height: 450px;
+    background: url('images/aboutusmain.png') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.banner-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Darkens the image */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.banner-content {
+    color: white !important;
+    max-width: 700px;
+}
+
+.banner-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.banner-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: white !important;
+}
+.main-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.breadcrumb {
+    font-size: 0.85rem;
+    color: purple;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+}
+
+
+:root {
+  --purple: #5a3277;
+  --gold: #dcb058;
+  --bg-light: #f4f4f4;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 1. Global Reset - Prevents width/scroll issues */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
 }
+
+:root {
+  --purple: #6a1b9a;
+  --gold: #d4af37;
+  --bg-light: #f9f9f9;
+}
+
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden; /* Prevents tiny accidental side-scrolls */
+  width: 100%;
+}
+
+/* 1. GLOBAL RESET - Put this at the very top */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #6a1b9a;
+  --gold: #d4af37;
+  --bg-light: #f9f9f9;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  line-height: 1.6;
+}
+
+/* 2. LAYOUT - Sidebar + Main */
+.page-container {
+  display: grid;
+  grid-template-columns: 280px 1fr; /* Sidebar fixed on desktop */
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: var(--bg-light);
+  padding-top: 50px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 15px 30px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  text-align: right;
+}
+
+.sidebar li.active {
+  background-color: #e6e0ec;
+  color: #000;
+  font-weight: bold;
+  border-right: 4px solid var(--purple);
+}
+
+/* Main Content Area */
+.main-content {
+  padding: 40px 5%;
+  width: 100%;
+  overflow: hidden; 
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.title-block h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  color: #333;
+  line-height: 1.1;
+}
+
+.accent-text { color: var(--gold); }
+
+.description-block {
+  max-width: 500px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* 3. CAROUSEL & FLOATING CARD */
+.carousel-section {
+  position: relative;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.image-wrapper {
+  display: flex;
+  height: 450px; /* Desktop Height */
+  width: 100%;
+  position: relative;
+}
+
+.bg-img {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.left-img { background-image: url('images/aboutussection1img.jpg'); background-color: #ccc; }
+.right-img { background-image: url('images/aboutussection2img.jpg'); background-color: #bbb; }
+
+.floating-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 35px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  border-top: 6px solid var(--purple);
+  
+  /* FIXED HEIGHT & VISIBILITY */
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  /* Adjust this min-height to your tallest card's content */
+  min-height: 400px; 
+  box-sizing: border-box;
+  
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
+.contentflashcard {
+  /* Remove visibility:hidden and grid-area */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1; 
+  width: 100%;
+}
+
+.nav-arrows {
+  display: flex;
+  justify-content: space-between; /* Keeps arrows on opposite sides */
+  width: 100%;
+  user-select: none;
+  margin-bottom: 10px;
+}
+
+/* Make sure arrows look clickable when active */
+.arrow {
+  cursor: pointer;
+  padding: 5px 10px;
+  opacity: 0.3;
+}
+.arrow.active {
+  opacity: 1;
+  font-weight: bold;
+}
+/* Divider inside card */
+.divider {
+  width: 40px;
+  margin: 15px auto;
+}
+
+/* 4. OUR STORY SECTION */
+.story-header {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  margin: 40px 0;
+  padding: 15px 0;
+}
+
+.story-header h1 {
+  font-size: clamp(32px, 6vw, 52px);
+  font-family: serif;
+}
+
+.story-grid {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.story-content { flex: 1.2; }
+.story-image { flex: 1; }
+.story-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------------------------------------------------
+   5. MEDIA QUERIES - ORDERED CAREFULLY
+------------------------------------------------------ */
+
+/* Tablets (1024px and down) */
+@media (max-width: 1024px) {
+  .page-container {
+    grid-template-columns: 1fr; /* Sidebar stacks on top */
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 20px 0;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .sidebar li { text-align: center; padding: 10px 15px; }
+  .story-grid { flex-direction: column; }
+}
+
+/* Mobile (768px and down) */
+@media (max-width: 768px) {
+  .content-header { flex-direction: column; }
+  .main-content { padding: 30px 20px; }
+
+  /* CRITICAL FIX: The card pushes content down */
+  .carousel-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-wrapper {
+    height: auto;
+    min-height: auto;
+   /*  height: 300px; Smaller images */
+    order: 1;
+  }
+
+  .floating-card {
+    position: relative; /* Removes absolute float */
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    margin-top: -40px; /* Slight overlap */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    order: 2; /* Ensures it stays below images in flex */
+  }
+  
+  .story-header h1 { line-height: 1; }
+}
+
+/* Small Mobile (480px) */
+@media (max-width: 480px) {
+  .sidebar li { font-size: 12px; padding: 8px 10px; }
+  .title-block h1 { font-size: 28px; }
+}
+
+.lastpagebanner {
+    width: 100%;
+    min-height: 40vh;
+    margin-top: 30px;
+    background-image: url('images/aboutuslastimage.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+}
+
+
+.lastpagebanner-overlay {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+
+.lastpagebanner-container {
+    width: 100%;
+    max-width: 100%; 
+    margin: 0 auto;
+    padding: 0 5%; 
+}
+
+
+.lastpagebanner-content {
+    max-width: 100%; 
+}
+
+
+.lastpagebanner-content h2 {
+    color: #ffffff;
+    font-size: clamp(1.5rem, 4vw, 2.2rem); 
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+
+.lastpagebanner-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lastpagebanner-links li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lastpagebanner-links li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.lastpagebanner-links li a.active,
+.lastpagebanner-links li a:hover {
+    color: #ffb400; 
+}
+
+.arrow-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.arrow {
+  cursor: pointer;
+  opacity: 0.3; 
+  transition: opacity 0.3s ease;
+}
+
+.arrow.active {
+  opacity: 1; /* Bright when clickable */
+  color: #ffb400; /* Example highlight color */
+}
+
+.arrow:not(.active) {
+  cursor: not-allowed;
+}
+.lastpagebanner-links li a.active .arrow-circle,
+.lastpagebanner-links li a:hover .arrow-circle {
+    background-color: #ffb400;
+    border-color: #ffb400;
+    color: #000;
+    transform: translateX(5px);
+}
+
+
+@media (max-width: 992px) {
+    .lastpagebanner-container {
+        padding: 0 40px;
+    }
+}
+
+/* For Mobile Devices */
+@media (max-width: 600px) {
+    .lastpagebanner {
+        min-height: auto;
+    }
+    
+    .lastpagebanner-overlay {
+        padding: 40px 0;
+    }
+
+    .lastpagebanner-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+    }
+
+    .lastpagebanner-links li a {
+        font-size: 1rem;
+        padding: 15px 0;
+    }
+    
+    .arrow-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}
+/*Search Box Active Styling*/
+mark {
+    background-color: yellow;
+    color: black;
+    padding: 0;
+    border-radius: 2px;
+}
+
+.search-box, .search-box * {
+    display: flex !important;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    background: purple;
+    padding: 5px 5px;
+    transition: width 0.4s ease;
+    width: 40px; 
+    overflow: hidden;
+     color:white;
+}
+
+
+.search-box.active {
+    width: 220px;
+    color:white;
+    background-color: purple;
+}
+
+#mainSearch {
+    border: none;
+    background: transparent;
+     color:white;
+    outline: none;
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+.search-box.active #mainSearch {
+    width: 200px;
+    margin-left: 10px;
+    border-radius: 5px;
+     color:white;
+}
+
+#searchBtn {
+    cursor: pointer;
+    color:white;
+}
+
+/* Footer Section Starts from here.... */
+
 .main-footer {
   background-color: #4b006e;
   color: #ffffff;
@@ -23,7 +855,7 @@ body {
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap; 
