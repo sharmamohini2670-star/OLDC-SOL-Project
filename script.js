@@ -1,0 +1,69 @@
+//Mega Menu Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const aboutLink = document.getElementById('about-link');
+    const megaMenu = document.getElementById('mega-menu-box');
+
+    // Toggle menu on click
+    aboutLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // Stops the click from bubbling to the window
+        megaMenu.classList.toggle('is-visible');
+    });
+
+    // Close menu when clicking outside
+    window.addEventListener('click', function(e) {
+        if (!megaMenu.contains(e.target) && e.target !== aboutLink) {
+            megaMenu.classList.remove('is-visible');
+        }
+    });
+});
+// Flashcard Carousel Functionality
+const cardData = [
+  {
+    title: "ET Lab",
+    text: "Specifically designed for the production of video lectures and audiobooks. Equipped with the latest technology and software, our ET Lab aims to develop educational material in the form of content for massive open online courses (MOOCs), audiobooks, and web-based information."
+  },
+  {
+    title: "PRAGYAN",
+    text: "An advanced Learning Management System (LMS) that helps them to keep their track record and give their Internal Assessments online. All the information regarding any program is available for the students on this portal and they can easily register for the program they want to pursue."
+  },
+  {
+    title: "COL Radio",
+    text: "A platform which plays a crucial role in disseminating academic information and updates, hosting academic and non-academic podcasts, and actively interacting with students on various topics  and is managed by a dedicated team of experienced instructors, content creators, and technical staff who work together to create high-quality content"
+  },
+  {
+    title: "CISBC",
+    text: "OLDC has also established a Centre for Innovative Skill-Based Courses (CISBC) and introduced various skill-based courses to enhance the employability of the students and make them job-ready. Designed with a focus on sectors where human resources are needed, these courses provide specialized skills that are in demand across various industries."
+  }
+];
+
+let currentIndex = 0;
+
+const titleEl = document.getElementById('cardTitle');
+const textEl = document.getElementById('cardText');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function updateCard(index) {
+  // Update Content
+  titleEl.textContent = cardData[index].title;
+  textEl.textContent = cardData[index].text;
+
+  // Visual feedback: Toggle 'active' class for arrows
+  prevBtn.classList.toggle('active', index > 0);
+  nextBtn.classList.toggle('active', index < cardData.length - 1);
+}
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < cardData.length - 1) {
+    currentIndex++;
+    updateCard(currentIndex);
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCard(currentIndex);
+  }
+});
