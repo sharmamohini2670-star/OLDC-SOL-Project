@@ -1742,6 +1742,60 @@ mark {
     margin-top: 0;
     text-align: left;
 }
+/* Container styling for spacing */
+.institutional-title-group, 
+.institutional-intro-text {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Heading styling */
+.institutional-title-group h1 {
+    font-size: 3rem; /* Desktop size */
+    line-height: 1.1;
+    color: #333;
+}
+
+.institutional-accent-purple {
+    color: #6f42c1; /* Example purple */
+}
+
+/* Intro text styling */
+.institutional-intro-text p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+/* --- RESPONSIVE QUERIES --- */
+
+/* Tablet (Screens smaller than 992px) */
+@media (max-width: 992px) {
+    .institutional-title-group h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Mobile (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    /* 1. Reduce font sizes */
+    .institutional-title-group h1 {
+        font-size: 2.2rem;
+    }
+    
+    .institutional-intro-text p {
+        font-size: 1.1rem;
+    }
+
+    /* 2. Remove the forced line breaks on mobile for better flow */
+    .institutional-title-group h1 br {
+        display: none;
+    }
+}
+
+
 .institutional-accent-purple { 
     color:#b8860b;
  }
