@@ -824,11 +824,12 @@ mark {
     justify-content: center;
     cursor: pointer;
     color: white;
-    font-size: 18px;           /* Adjust based on your icon library */
-    flex-shrink: 0;            /* Prevents the icon from squishing */
+    font-size: 18px;           
+    flex-shrink: 0;       
+    margin: 0 auto;
+    display: flex;     
 }
 
-/* The Input Field */
 #mainSearch {
     border: none;
     background: transparent;
@@ -840,7 +841,7 @@ mark {
     transition: width 0.4s ease, opacity 0.3s ease;
 }
 
-/* Input state when active */
+
 .search-box.active #mainSearch {
     width: 100%;
     opacity: 1;
@@ -848,10 +849,40 @@ mark {
     margin-right: 15px;
 }
 
-/* Placeholder visibility */
 #mainSearch::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
+/* Mobile-Specific Responsive Overrides */
+@media (max-width: 600px) {
+    .search-box.active {
+        position: fixed; 
+        top: 10px;       
+        left: 10px;     
+        right: 10px;    
+        width: calc(100% - 20px) !important; 
+        z-index: 1000;   /* Ensure it stays above other content */
+        max-width: none;
+    }
+
+    .search-box.active #mainSearch {
+        width: 100%;
+        opacity: 1;
+        margin-left: 10px;
+    }
+}
+
+/* Large screen/Projector adjustment */
+@media (min-width: 1800px) {
+    :root {
+        --search-height: 75px;
+        --search-expanded-width: 600px;
+    }
+}
+
+
+
+
+
 
 /* Page - About Leadership and Governance*/
 
@@ -1528,9 +1559,7 @@ mark {
     }
 }
 
-/* ==========================================================================
-   SECTION 2: INSTITUTIONAL PAGE BANNER (With Overlay and Decorative Elements)
-   ========================================================================== */
+
 .institutionalpage-banner {
     height: 450px;
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
@@ -1709,7 +1738,7 @@ mark {
     }
     
     .institutional-sidebar li {
-        text-align: left; /* Switch to left-align on mobile for better readability */
+        text-align: left;
         border-right: none;
         border-left: 4px solid transparent;
     }
@@ -1740,11 +1769,10 @@ mark {
 .institutional-title-group h1 {
     font-size: 2.5rem;
     line-height: 1.1;
-   
     margin-top: 0;
     text-align: left;
 }
-/* Container styling for spacing */
+
 .institutional-title-group, 
 .institutional-intro-text {
     width: 90%;
@@ -1753,18 +1781,16 @@ mark {
     padding: 20px 0;
 }
 
-/* Heading styling */
 .institutional-title-group h1 {
-    font-size: 3rem; /* Desktop size */
+    font-size: 3rem; 
     line-height: 1.1;
     color: #333;
 }
 
 .institutional-accent-purple {
-    color: #6f42c1; /* Example purple */
+    color: #6f42c1;
 }
 
-/* Intro text styling */
 .institutional-intro-text p {
     font-size: 1.25rem;
     line-height: 1.6;
@@ -1773,16 +1799,13 @@ mark {
 
 /* --- RESPONSIVE QUERIES --- */
 
-/* Tablet (Screens smaller than 992px) */
 @media (max-width: 992px) {
     .institutional-title-group h1 {
         font-size: 3rem;
     }
 }
 
-/* Mobile (Screens smaller than 768px) */
 @media (max-width: 768px) {
-    /* 1. Reduce font sizes */
     .institutional-title-group h1 {
         font-size: 2.2rem;
     }
@@ -1791,21 +1814,10 @@ mark {
         font-size: 1.1rem;
     }
 
-    /* 2. Remove the forced line breaks on mobile for better flow */
     .institutional-title-group h1 br {
         display: none;
     }
 }
-@media only screen and (min-width: 393px) and (max-width: 852px) {
-    .institutional-title-group h1 {
-        font-size: 2.2rem; /* Adjusted for this specific screen width */
-    }
-}
-
-
-
-
-
 
 
 .institutional-accent-purple { 
@@ -1949,13 +1961,12 @@ mark {
     padding: 30px;
     position: relative;
     transition: all 0.3s ease;
-    margin-left: -25px; /* Desktop overlap */
+    margin-left: -25px; 
     background: white;
     z-index: 1;
     box-sizing: border-box;
 }
 
-/* Inner Gold/Purple Ring using pseudo-element */
 .institutional-step-circle::after {
     content: '';
     position: absolute;
@@ -1968,12 +1979,11 @@ mark {
     pointer-events: none;
 }
 
-/* Specific Circle Styles */
 .institutional-purple-bg {
     background: var(--institutional-primary, #4b0082);
     color: white;
     z-index: 3;
-    margin-left: 0; /* First circle has no left overlap */
+    margin-left: 0; 
 }
 
 .institutional-border-gold {
@@ -1986,7 +1996,7 @@ mark {
     z-index: 1;
 }
 
-/* Text Styling */
+
 .institutional-step-num {
     font-size: 2rem;
     font-weight: bold;
@@ -2006,26 +2016,26 @@ mark {
     .institutional-step-circle {
         width: 190px;
         height: 190px;
-        margin-left: -15px; /* Tighter overlap */
+        margin-left: -15px; 
     }
 }
 
 /* For Mobile (Screens smaller than 768px) */
 @media (max-width: 768px) {
     .institutional-mission-steps {
-        flex-direction: column; /* Stack vertically */
-        gap: 20px; /* Space between circles */
+        flex-direction: column; 
+        gap: 20px; 
     }
 
     .institutional-step-circle {
-        margin-left: 0; /* Remove horizontal overlap */
-        margin-top: -30px; /* Add vertical overlap instead */
+        margin-left: 0; 
+        margin-top: -30px;
         width: 210px;
         height: 210px;
     }
 
     .institutional-purple-bg {
-        margin-top: 0; /* First one stays at top */
+        margin-top: 0; 
     }
     
     .institutional-border-gold { z-index: 2; }
@@ -2039,6 +2049,1432 @@ mark {
     .institutional-sidebar { width: 100%; border-right: none; }
     .institutional-intro-text { text-align: left; }
 }
+
+
+
+/*Research Page Starts from here....*/
+.researchactive{ color: #d4a017; 
+    font-weight: bold;
+}
+
+.research-banner {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 60vh;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('images/researchlastimage.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.research-banner-overlay {
+    width: 100%;
+    padding: 40px 20px; 
+}
+
+.research-banner-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; 
+}
+
+.research-banner-content {
+    background: #ffffff;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.research-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #D4AF37;
+}
+
+.research-title {
+    margin: 0;
+    font-size: 1.8rem; 
+    color: #000;
+    line-height: 1.2;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.research-content-divider {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.research-description {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.research-link-active {
+    text-decoration: none;
+    color: #4B0082;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.research-arrow-circle {
+    background-color: #4B0082;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (min-width: 768px) {
+    .research-banner {
+        min-height: 600px;
+        height: 70vh;
+    }
+    
+    .research-banner-container {
+        justify-content: flex-start; 
+        padding-left: 5%;
+    }
+
+    .research-title {
+        font-size: 2.2rem;
+    }
+
+    .research-banner-content {
+        padding: 60px 50px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .research-banner-container {
+        padding-left: 10%; 
+    }
+    
+    .research-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .research-banner-content {
+        max-width: 500px; 
+}
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%; 
+}
+
+.researchpage-banner {
+    width: 100%;
+    min-height: 40vh; 
+    max-height: 500px;
+    height: 450px; 
+    
+    background-image: url('images/researchmainimage.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+}
+
+.researchbanner-overlay {
+    background-color: rgba(0, 0, 0, 0.55); 
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+.researchbanner-content h1 {
+    color: #ffffff;
+    font-family: 'Georgia', serif;
+    font-weight: 500;
+    line-height: 1.2;
+  
+    font-size: clamp(2rem, 5vw + 1rem, 4.5rem);
+    
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.researchbanner-overlay {
+    background: rgba(0, 0, 0, 0.4); 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 8% 80px 8%; 
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+@media (min-width: 1600px) {
+    .researchpage-banner {
+        height: 550px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .researchpage-banner {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .researchpage-banner {
+        height: 280px;
+        background-position: 30% center; 
+    }
+    
+    .researchbanner-content {
+        text-align: center; 
+    }
+    
+    .researchbanner-overlay {
+        justify-content: center; 
+    }
+}
+
+
+:root {
+    --research-purple: #4a154b;
+    --research-gold: #d4a017;
+    --research-light-purple: #f4eff4;
+    --research-border: #e0e0e0;
+}
+
+.researchpage-container {
+    display: flex;
+    width: 100%; 
+    min-height: 100vh; 
+    font-family: 'Arial', sans-serif;
+}
+
+
+.researchsidebar {
+    width: 18%;            
+    min-width: 220px;    
+    flex-shrink: 0;
+ background-color: #f4f4f4;
+    padding-top: 4vh;     
+}
+
+.researchsidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 2vh;       
+}        
+
+.researchsidebar li {
+    padding: 1.5vh 1.5vw;  
+    font-size: clamp(0.8rem, 0.9vw, 1rem);
+    cursor: pointer;
+    text-align: right;     
+    transition: all 0.3s ease;
+    border-right: 4px solid transparent; 
+    color: #555;            
+    font-family: sans-serif; 
+}
+
+/* Hover and Active State */
+.researchsidebar li:hover, 
+.researchsidebar li.researchactive {
+    background-color: #f3e5f5; 
+    border-right: 4px solid #51007a; 
+    font-weight: bold;
+    color: #51007a;
+}
+
+@media (max-width: 992px) {
+    .researchsidebar {
+        width: 100%;
+        border-right: none;
+        padding-top: 0;
+    }
+    
+    .researchsidebar ul {
+        position: relative; 
+        top: 0;
+        display: block;
+    }
+
+    .researchsidebar li {
+        text-align: left;   
+        border-right: none;
+        border-left: 4px solid transparent;
+        padding: 15px 20px;
+    }
+
+    .researchsidebar li:hover, 
+    .researchsidebar li.researchactive {
+        border-right: none;
+        border-left: 4px solid #51007a;
+    }
+}
+
+.researchmain-content {
+    flex: 1; 
+    padding: 3vw 5vw; 
+    overflow-x: hidden;
+}
+
+.researchheadline {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); 
+    margin-bottom: 5vh;
+}
+
+
+.researchfocus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 1.5vw;
+    margin-bottom: 6vh;
+}
+
+.researchfocus-card {
+    aspect-ratio: 3 / 4; 
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.researchcard-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.researchinnovator-hero img {
+    width: 100%;
+    height: auto; 
+    display: block;
+    object-fit: cover;
+}
+
+.researchinnovator-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 3vw;
+    padding: 4vh 0;
+}
+
+.researchengine-layout {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 4vw;
+}
+
+.researchengine-image {
+    flex: 1 1 400px; 
+    position: relative;
+}
+
+.researchengine-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.researchengine-details {
+    flex: 1 1 350px;
+}
+
+.researchengine-links li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 0; 
+    border-bottom: 1px solid var(--research-border);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .researchpage-container {
+        flex-direction: column;
+    }
+    
+    .researchsidebar {
+        flex: none;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--research-border);
+    }
+
+    .researchfocus-card {
+        aspect-ratio: 16 / 9; 
+    }
+}
+
+.researchcontent-header {
+  text-align: center;
+  padding: 20px 20px; 
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.researchheadline {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-family: 'Georgia', serif; 
+  font-weight: 500;
+  line-height: 1.4;
+  color: #333;
+  margin: 0;
+}
+
+
+.researchaccent-purple {
+  color: #6a2a6a; 
+  font-weight: 600;
+}
+
+.researchaccent-gold {
+  color: #d4a017; 
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .researchcontent-header {
+    padding: 20px 15px;
+  }
+  
+  .researchheadline br {
+    display: none;
+  }
+}
+.researchfocus-section {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2vw; 
+  box-sizing: border-box;
+}
+
+.researchsection-label {
+  font-size: clamp(0.8rem, 2vw, 1rem); 
+  letter-spacing: 0.15em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.researchfocus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5vw;
+}
+
+.researchcard-1 { 
+            background-image: url('images/section1research.jpg'); 
+        }
+        .researchcard-2 { 
+            background-image: url('images/section2research.jpg'); 
+        }
+        .researchcard-3 { 
+            background-image: url('images/section3research.jpg'); 
+        }
+.researchfocus-card {
+  position: relative;
+  width: 100%; 
+  aspect-ratio: 3 / 4; 
+  
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .researchfocus-card {
+    aspect-ratio: 16 / 9; 
+  }
+}
+
+.researchcard-overlay {
+  width: 100%;
+  padding: 8% 6%; 
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent 100%);
+  color: white;
+  box-sizing: border-box;
+}
+
+.researchcard-overlay h4 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.researchcard-overlay p {
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  line-height: 1.4;
+  opacity: 0.9;
+}
+.research-banner-links
+{
+    list-style: none;
+}
+/* Container scales based on viewport width */
+.researchstudent-innovators {
+  width: 95%;
+  max-width: 1400px;
+  margin: 6px auto 3vw auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.researchinnovator-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.researchinnovator-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+
+.researchcarousel-controls {
+  position: absolute;
+  bottom: 0;
+  right: 10%; 
+  display: flex;
+  z-index: 10;
+}
+
+.researchcarousel-controls button {
+  padding: 1.5vw 2.5vw;
+  min-padding: 15px 20px; 
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  transition: opacity 0.3s ease;
+}
+
+.researchprev { 
+    background-color: #7d4b91;
+    margin-right: 8px;
+ } 
+.researchnext { 
+    background-color: #4b0082; 
+        margin-left: 8px;
+} 
+
+.researchcarousel-controls button:hover {
+  filter: brightness(1.2);
+}
+
+.researchinnovator-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3vw;
+  padding: 4vw 0;
+  align-items: start;
+}
+
+/* Left: Heading */
+.researchtext-left h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  margin: 0;
+  color: #222;
+}
+
+/* Center: Description */
+.researchtext-center p {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Right: Shaded Highlight Box */
+.researchtext-right {
+  background-color: #f4f4f4; /* Light grey tint from image */
+  padding: 2vw;
+  /* Gives a slight offset look seen in the screenshot */
+  transform: translateY(10px); 
+}
+
+.researchtext-right p {
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+/* --- MOBILE ADAPTATIONS --- */
+@media (max-width: 768px) {
+  .researchinnovator-hero {
+    aspect-ratio: 4 / 3; /* Taller image for mobile screens */
+  }
+  
+  .researchcarousel-controls {
+    right: 0;
+    width: 100%;
+  }
+  
+  .researchcarousel-controls button {
+    flex: 1; /* Full width buttons on mobile */
+    padding: 20px;
+  }
+
+  .researchtext-right {
+    transform: none; /* Remove offset on small screens */
+  }
+}
+
+/* --- SECTION CONTAINER --- */
+.researchinnovation-engine {
+  width: 95%;
+  max-width: 1400px;
+  margin: 2vw auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* --- DYNAMIC FLEX LAYOUT --- */
+.researchengine-layout {
+  display: flex;
+  flex-direction: row; /* Side-by-side on desktop */
+  flex-wrap: wrap;     /* Allows wrapping to new line on mobile */
+  gap: 4vw;
+  align-items: flex-start;
+}
+
+/* --- DYNAMIC IMAGE BLOCK --- */
+.researchengine-image {
+  position: relative;
+  flex: 1 1 400px; 
+  aspect-ratio: 4 / 5; 
+  overflow: hidden;
+  background-color: #222;
+}
+
+.researchengine-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+/* Black Overlay Label */
+.researchlabel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5vw;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-size: larger;
+  
+  text-transform: uppercase;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* --- DYNAMIC DETAILS BLOCK --- */
+.researchengine-details {
+  flex: 1.2 1 450px; /* Slightly wider than the image column */
+  padding: 1vw 0;
+}
+
+.researchengine-desc {
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem); /* Dynamic font size */
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 2.5vw;
+}
+
+.researchlearn-more-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+/* --- DYNAMIC LIST NAVIGATION --- */
+.researchengine-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.researchengine-links li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(15px, 1.5vw, 25px) 0;
+  border-bottom: 1px solid #e0e0e0; /* Thin divider */
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: #444;
+  cursor: pointer;
+  transition: padding-left 0.3s ease;
+}
+
+/* Active Link State */
+.researchactive-link {
+  color: #4b0082 !important; /* Deep Purple */
+  font-weight: 600;
+}
+
+/* Circular Arrow Icon */
+.researcharrow {
+  width: clamp(30px, 3vw, 40px);
+  height: clamp(30px, 3vw, 40px);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+/* Active Arrow State */
+.researchactive-link .researcharrow {
+  background-color: #4b0082;
+  color: #fff;
+  border-color: #4b0082;
+}
+
+/* --- MOBILE BREAKPOINTS --- */
+@media (max-width: 850px) {
+  .researchengine-layout {
+    flex-direction: column; /* Stacks image on top of text */
+  }
+  
+  .researchengine-image {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* More cinematic/wider for phone screens */
+  }
+  
+  .researchengine-details {
+    width: 100%;
+  }
+}
+
+/*Campus Page starts here----*/
+/* --- Global Dynamic Settings --- */
+:root {
+    --campus-gold: #b08d57;
+    --campus-purple: #6a2a8c;
+    --campus-dark: #1a1a1a;
+    --campus-transition: all 0.3s ease;
+}
+
+.campus-main-content {
+    width: 100%;
+    max-width: 95vw; 
+    margin: 0 auto;
+    padding: 2vh 2vw; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    gap: 4vh;
+    margin: 0 auto 8vh auto;
+    width: 90%; 
+    max-width: min(95%, 1200px);
+}
+
+
+.campus-section-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 4vh; 
+    margin-bottom: 8vh;
+}
+
+.campus-section-title {
+    font-size: clamp(1.125rem, 3vw, 2rem); 
+    width: fit-content;
+    padding-bottom: 1vh;
+    border-bottom: 1px solid #ddd;
+}
+
+.campus-viewer-side, 
+.campus-map-wrapper, 
+.campus-interactive-wrapper {
+    width: 100%; 
+    position: relative;
+    aspect-ratio: 16 / 9; 
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.campus-viewer-img, 
+.campus-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+.campus-zoom-controls {
+    position: absolute;
+    right: 20px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.campus-zoom-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #444;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.campus-zoom-btn:first-child {
+    border-bottom: none; 
+}
+.campus-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.5vw;
+}
+
+.campus-highlight-item {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+}
+
+.campus-archive-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 5vw;
+}
+
+.campus-archive-intro {
+    flex: 1 1 300px; 
+}
+
+.campus-masonry-gallery {
+    flex: 2 1 500px;
+    display: flex;
+    gap: 1vw;
+}
+
+.campus-gallery-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.campus-gallery-img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .campus-section-container {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0 50px;
+    }
+
+    .campus-text-side {
+        flex: 0 0 20%; 
+    }
+
+    .campus-offset-top {
+        margin-top: 5vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .campus-viewer-side, 
+    .campus-map-wrapper {
+        aspect-ratio: 4 / 3; 
+    }
+    
+    .campus-map-card {
+        width: 90%;
+        left: 5%;
+        padding: 15px;
+    }
+}
+
+/* --- Root Variables --- */
+:root {
+    --campus-gold: #b08d57;
+    --campus-dark: #000000;
+    --campus-white: #ffffff;
+    --campus-font-main: 'Playfair Display', serif; /* Cinematic serif for headings */
+    --campus-font-body: 'Arial', sans-serif;
+}
+
+/* --- Global Section Container --- */
+.campus-section-container {
+    display: flex;
+    flex-direction: column; /* Stacks vertically for mobile/tablet */
+    gap: 20px;
+    margin: 0 auto 8vh auto;
+    width: min(92%, 1200px); /* Dynamic width with PC/Projector cap */
+}
+
+/* --- Left Side Text Styling --- */
+.campus-text-side {
+    width: 100%;
+}
+
+.campus-section-title {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-family: var(--campus-font-main);
+    color: var(--campus-dark);
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+/* --- Media Wrapper (Map & 3D Viewer) --- */
+.campus-map-wrapper, 
+.campus-interactive-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Professional landscape ratio */
+    overflow: hidden;
+    border-radius: 4px;
+    background: #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.campus-map-img, 
+.campus-viewer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Floating Zoom Controls (Centered Right) --- */
+.campus-zoom-controls {
+    position: absolute;
+    right: 12px;
+    top: 50%; /* Vertical center point */
+    transform: translateY(-50%); /* Offset back by 50% height */
+    display: flex;
+    flex-direction: column;
+    background: var(--campus-dark);
+    z-index: 10;
+}
+
+.campus-zoom-btn {
+    background: transparent;
+    color: var(--campus-white);
+    border: 0.5px solid #333;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.campus-zoom-btn:hover {
+    background: #222;
+}
+
+/* --- Navigation Controls (Bottom Center) --- */
+.campus-nav-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.campus-arrow-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+/* --- Map Info Card (Overlay) --- */
+.campus-map-card {
+    position: absolute;
+    background: var(--campus-dark);
+    color: var(--campus-white);
+    z-index: 5;
+    font-family: var(--campus-font-body);
+}
+
+.campus-map-location-name {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.campus-map-address {
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+/* --- Map Link & Gold Arrow --- */
+.campus-map-link {
+    color: var(--campus-gold);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.campus-link-arrow {
+    background: var(--campus-gold);
+    color: var(--campus-dark);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* 1. MOBILE (Small devices) */
+@media screen and (max-width: 481px) {
+    .campus-map-card {
+        top: 10px;
+        left: 10px;
+        padding: 15px;
+        width: 85%;
+    }
+    .campus-map-location-name { font-size: 0.9rem; }
+    .campus-map-address { font-size: 0.75rem; }
+    .campus-zoom-btn { width: 34px; height: 34px; }
+}
+
+/* 2. TABLET (Mid-size devices) */
+@media screen and (min-width: 482px) and (max-width: 768px) {
+    .campus-map-card {
+        top: 20px;
+        left: 20px;
+        padding: 20px;
+        width: 260px;
+    }
+}
+
+/* 3. DESKTOP / PROJECTOR (Large screens) */
+@media screen and (min-width: 769px) {
+    .campus-section-container {
+        flex-direction: row; /* Horizontal split */
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .campus-text-side {
+        flex: 0 0 250px;
+    }
+
+    .campus-map-wrapper, .campus-interactive-wrapper {
+        flex: 1;
+    }
+
+    .campus-map-card {
+        top: 30px;
+        left: 30px;
+        padding: 30px;
+        width: 320px;
+    }
+}
+
+/* 1. Container & Global Scaling */
+.campus-highlights-section {
+    padding: clamp(20px, 5vw, 60px) 5%;
+    max-width: 1920px; /* Limits width for ultra-wide projectors */
+    margin: 0 auto;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* 2. Section Title */
+.campus-section-title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: clamp(15px, 3vw, 30px);
+    display: inline-block;
+    position: relative;
+}
+
+.campus-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 60%; 
+    height: 3px;
+    border:none;
+    background-color: #333;
+}
+
+/* 3. The Dynamic Grid 
+   - Uses 'minmax' to ensure cards never get too small 
+   - Automatically adds more columns on bigger screens (Projectors)
+*/
+.campus-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* 4. The Dynamic Card 
+   - 'aspect-ratio' ensures the height scales perfectly with the width
+*/
+.campus-highlight-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Maintains shape on all devices */
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    cursor: pointer;
+}
+
+/* Background Image Scaling */
+.campus-highlight-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.campus-highlight-item:hover img {
+    transform: scale(1.1);
+}
+
+.campus-highlight-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
+    color: #ffffff;
+    padding: clamp(15px, 2.5vw, 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Titles at bottom */
+    transition: background 0.4s ease;
+    z-index: 2;
+}
+
+.campus-icon-circle {
+    position: absolute;
+    top: clamp(10px, 2vw, 20px);
+    left: clamp(10px, 2vw, 20px);
+    width: clamp(40px, 5vw, 65px);
+    height: clamp(40px, 5vw, 65px);
+    background:rgb(151, 150, 151);
+    opacity: 0.6;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+   
+}
+
+.campus-icon-circle img {
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+  
+    filter: invert(85%) sepia(30%) saturate(1000%) hue-rotate(350deg);
+}
+
+
+.campus-item-title {
+    font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+    font-weight: bold;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.campus-item-desc {
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    line-height: 1.5;
+    margin-top: 10px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.campus-highlight-item.campus-active .campus-highlight-overlay,
+.campus-highlight-item:hover .campus-highlight-overlay {
+    background: rgba(0, 0, 0, 0.75);
+    justify-content: center; 
+}
+
+.campus-highlight-item.campus-active .campus-item-title,
+.campus-highlight-item:hover .campus-item-title {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    margin-bottom: 5px;
+}
+
+.campus-highlight-item.campus-active .campus-item-desc,
+.campus-highlight-item:hover .campus-item-desc {
+    opacity: 1;
+    max-height: 150px; 
+}
+
+@media (min-width: 2000px) {
+    .campus-highlights-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+.campus-visual-archive {
+    padding: clamp(40px, 8vw, 100px) 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Georgia', serif;
+    background-color: #fff;
+}
+
+.campus-archive-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+}
+
+
+
+.campus-archive-intro {
+    max-width: 500px;
+}
+
+
+.campus-label-top {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.campus-gold-line {
+    display: inline-block;
+    height: 2px;
+    width: 60px;
+    background: repeating-linear-gradient(
+        to right,
+        #d4af37 0, #d4af37 35px,
+        transparent 35px, transparent 45px,
+        #d4af37 45px, #d4af37 60px
+    );
+}
+
+.campus-archive-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #222;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
+
+
+.campus-archive-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 1px;
+    background-color: #eee;
+}
+
+.campus-archive-text {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    color: #555;
+    line-height: 1.6;
+    margin: 25px 0 40px 0;
+}
+
+
+.campus-gallery-btn {
+    background-color: #702a8c;
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(112, 42, 140, 0.3);
+    transition: all 0.3s ease;
+}
+
+.campus-gallery-btn:hover {
+    background-color: #5a2172;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(112, 42, 140, 0.4);
+}
+
+/* 4. Masonry Gallery Layout */
+.campus-masonry-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.campus-gallery-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* The "Staggered" Effect for the second column */
+.campus-offset-top {
+    margin-top: 40px;
+}
+
+.campus-gallery-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.5s ease, filter 0.3s ease;
+    cursor: zoom-in;
+}
+
+.campus-gallery-img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+/* 5. Device-Specific Adjustments */
+
+/* Tablet & Smaller Screens */
+@media (max-width: 992px) {
+    .campus-archive-container {
+        grid-template-columns: 1fr; /* Stack text and gallery */
+        text-align: center;
+    }
+    
+    .campus-label-top {
+        justify-content: center;
+    }
+    
+    .campus-archive-intro {
+        margin: 0 auto;
+    }
+    
+    .campus-offset-top {
+        margin-top: 20px; /* Reduce stagger on smaller screens */
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+    .campus-visual-archive {
+        padding: 40px 20px;
+    }
+    
+    .campus-masonry-gallery {
+        gap: 15px;
+    }
+    
+    .campus-gallery-btn {
+        width: 100%; /* Easy to tap on mobile */
+    }
+}
+
+/* Big Screens / Projectors */
+@media (min-width: 1600px) {
+    .campus-archive-container {
+        gap: 120px;
+    }
+    
+    .campus-gallery-img {
+        border-radius: 12px;
+    }
+}
+
 
 
 
