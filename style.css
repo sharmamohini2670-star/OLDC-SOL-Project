@@ -25,6 +25,11 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; 
+    overflow-y: auto !important; /* Forces vertical scrolling back on */
+    height: auto !important;     /* Allows the body to grow with your content */
+    display: block !important;
+
 }
 
 /* 2. Reusable Layout Components */
@@ -145,8 +150,6 @@ body {
     margin-top: 5px;
     font-weight: normal;
 }
-
-/* Navigation Links */
 .navigation ul {
     list-style: none;
     display: flex;
@@ -168,8 +171,6 @@ body {
     font-weight: bold;
 }
 
-
-/* Optional: slight hover effect */
 .search-icon:hover {
     background-color: #3d005c;
 }
@@ -184,8 +185,6 @@ body {
     }
 }
 
-
-/* Tablet and Mobile (Devices smaller than 768px) */
 @media (max-width: 768px) {
     
     .top-nav {
@@ -197,10 +196,10 @@ body {
 
     .logo-box {
         top: 0;
-        position: relative; /* Change from absolute */
+        position: relative; 
         left: auto;
         transform: none;
-        margin: 0 auto 20px auto; /* Centers it and adds space below */
+        margin: 0 auto 20px auto; 
         width: 150px;
         height: auto;
     }
@@ -232,22 +231,17 @@ body {
     
 }
 
-/* --- MEGA MENU DESKTOP STYLES --- */
-
-
-/* 1. Ensure the parent container can handle full width */
 .top-nav {
     position: relative;
     width: 100%;
 }
 
-/* 2. The Mega Menu Box */
 .mega-menu {
     display: none; 
     position: absolute;
     left: 0;
     width: 100%;
-    background-color: #000 !important; /* Pure black background */
+    background-color: #000 !important; 
     z-index: 9;
     padding: 40px 0;
     box-sizing: border-box;
@@ -255,26 +249,27 @@ body {
 
 .is-visible {
     display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* 3. The Grid Layout - This makes the 3 columns sit side-by-side */
+
 .mega-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
-    max-width: 1200px; /* Centers the content like the original */
+    grid-template-columns: repeat(3, 1fr); 
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 0 50px;
     gap: 20px;
 }
 
-/* 4. Column & Link Styling */
 .column {
     display: flex;
     flex-direction: column;
 }
 
 .mega-menu a {
-    color: #999 !important; /* Grey text like the image */
+    color: #999 !important; 
     text-decoration: none;
     font-size: 14px;
     padding: 8px 0;
@@ -283,12 +278,11 @@ body {
 }
 
 .mega-menu a:hover {
-    color: #fff !important; /* White text on hover */
+    color: #fff !important; 
 }
 
-/* 5. The Golden Underline Link */
 .mega-menu a.highlight {
-    color: #ffcc00 !important; /* Golden color */
+    color: #ffcc00 !important;
     font-weight: bold;
     text-decoration: underline;
     text-underline-offset: 8px;
@@ -296,7 +290,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Responsive: Only stack on very small mobile screens */
 @media (max-width: 768px) {
     .mega-content {
         grid-template-columns: 1fr;
@@ -347,9 +340,9 @@ body {
 .breadcrumb {
     font-size: 0.85rem;
     color: purple;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ffb400;
     padding-bottom: 10px;
+    text-align: center;
 }
 
 .content-wrapper {
@@ -374,7 +367,6 @@ body {
   min-height: 100vh;
 }
 
-/* 1. Global Reset - Prevents width/scroll issues */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -389,11 +381,10 @@ body {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden; /* Prevents tiny accidental side-scrolls */
+  overflow-x: hidden; 
   width: 100%;
 }
 
-/* 1. GLOBAL RESET - Put this at the very top */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -788,6 +779,19 @@ body {
         font-size: 1rem;
     }
 }
+
+mark {
+    background-color: yellow;
+    color: black;
+    padding: 0;
+    border-radius: 2px;
+}
+
+/* Search Box Styles */
+
+
+
+
 /*Search Box Active Styling*/
 mark {
     background-color: yellow;
@@ -796,26 +800,24 @@ mark {
     border-radius: 2px;
 }
 
-/* Container: The main purple block */
+
 .search-box {
     display: flex;
     align-items: center;
-    background-color: #51007a; /* Deep purple matching your image */
-    width: 45px;                /* Match height for a perfect square */
+    background-color: #51007a; 
+    width: 45px;                
     height: 45px;
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
-    padding: 0;                /* Remove padding to keep the icon flush */
+    padding: 0;               
 }
 
-/* Expanded state */
 .search-box.active {
     width: 250px;
 }
 
-/* The Icon: Styled to be the square block from your image */
 #searchBtn {
-    min-width: 45px;           /* Ensures it stays square when expanded */
+    min-width: 45px;           
     height: 45px;
     display: flex;
     align-items: center;

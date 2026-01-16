@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>OLDC Home Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <header class="main-header">
+  <div class="top-bar">
+      <div class="top-container">
+    <div class="top-links">
+      <a href="#">News</a>
+      <span class="divider">|</span>
+      <a href="#">Office Directory</a>
+      <span class="divider">|</span>
+      <a href="#">Quick Links</a>
+    </div>
+
+   <div class="navbarupper">
+  <div class="university-logo">
+      <img src="images/mainlogo.png" alt="University of Delhi">
+  </div>
+</div>   
+
+  </div>
+</div>
+
+<div class="top-nav">
+        <div class="logo-box">
+            <img src="images/openlearninglogo.png" alt="University Logo" class="logo-img">
+            <div class="logo-text">
+                <span class="center-name">Open Learning Development Centre</span> <br/><br/>
+                <span class="sanskrit-motto">उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत</span>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html" >Home</a></li>
+                <li class="dropdown active">
+  <a href="javascript:void(0)" id="about-link" >About ▾</a>
+  
+  <div class="mega-menu" id="mega-menu-box">
+    <div class="mega-content">
+      <div class="column">
+         <a href="#" onclick="window.location.href='aboutus.html';" >About OLDC</a>
+        <a href="#" onclick="window.location.href='aboutoldc.html';">Leadership & Governance</a>
+        <a href="#" onclick="window.location.href='partnerships.html';" >Partnerships</a>
+      </div>
+      <div class="column">
+        <a href="#">Milestones & Achievements</a>
+        <a href="#" onclick="window.location.href='institutionalfoundation.html';" style="cursor: pointer;">Institutional Foundation & Vision</a>
+        <a href="#" onclick="window.location.href='research.html';" >Research & Innovation</a>
+      </div>
+      <div class="column">
+        <a href="#" onclick="window.location.href='press.html';" >Press & Media</a>
+        <a href="#" onclick="window.location.href='campus.html';" >Campus</a>
+        <a href="#" onclick="window.location.href='community.html';" >Community & Social Impact</a>
+      </div>
+    </div>
+  </div>
+</li>
+                <li><a href="#">Courses ▾</a></li>
+                <li><a href="#">Internship ▾</a></li>
+                <li><a href="#">Facilities ▾</a></li>
+ <li class="search-box">
+    <input type="text" id="mainSearch" placeholder="Type here..." >
+    <i class="fa-solid fa-magnifying-glass" id="searchBtn"  ></i>
+</li>
+        </nav>
+    </div>
+</header>
+
+
+<section class="researchpage-banner">
+    <div class="researchbanner-overlay">
+        <div class="banner-container">
+            <div class="researchbanner-content">
+                <h1>Innovation Begins Here</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="researchmain-container">
+
+<div class="breadcrumb">
+    <p>
+        <a href="index.html" style="cursor: pointer;text-decoration: none;"><i class="fas fa-home" style="color: purple;"></i> Home</a> > 
+        <a href="aboutus.html" style="cursor: pointer;text-decoration: none;">About OLDC</a> > 
+        <a href="campus.html" style="cursor: pointer;text-decoration: none;">Campus</a>
+    </p>
+</div>
+
+<div class="researchpage-container">
+  <aside class="researchsidebar">
+    <nav>
+      <ul>
+        <li onclick="window.location.href='aboutus.html';" style="cursor: pointer;">About OLDC</li>
+        <li onclick="window.location.href='aboutoldc.html';" style="cursor: pointer;">Leadership & Governance</li>
+        <li onclick="window.location.href='institutionalfoundation.html';" style="cursor: pointer;">Institutional Foundation & Vision</li>
+    <!--   <li>Milestones & Achievements</li> -->
+        <li  onclick="window.location.href='research.html';" style="cursor: pointer;">Research & Innovation</li>
+       <li onclick="window.location.href='partnerships.html';">Partnerships</li>
+        <li onclick="window.location.href='press.html';">Press & Media</li>
+        <li class="researchactive" onclick="window.location.href='campus.html';">Campus</li>
+        <li onclick="window.location.href='community.html';">Community & Social Impact</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="campus-main-content">
+
+    <section class="campus-exploration-section">
+        <div class="campus-section-container">
+            <div class="campus-text-side">
+                <h2 class="campus-section-title">Explore OLDC in 3D</h2>
+            </div>
+            <div class="campus-viewer-side">
+                <div class="campus-interactive-wrapper">
+                    <img src="images/3doldcview.jpg" alt="OLDC 3D Building View" class="campus-viewer-img">
+                    <div class="campus-zoom-controls">
+                        <button class="campus-zoom-btn">+</button>
+                        <button class="campus-zoom-btn">−</button>
+                    </div>
+                    <div class="campus-nav-controls">
+                        <button class="campus-arrow-btn">❮</button>
+                        <button class="campus-arrow-btn">❯</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="campus-map-section">
+        <div class="campus-section-container">
+            <div class="campus-text-side">
+                <h2 class="campus-section-title">Campus Map</h2>
+            </div>
+            <div class="campus-map-wrapper">
+                <div class="campus-map-card">
+                    <h5 class="campus-map-location-name">Open Learning Development Centre, North Delhi</h5>
+                    <p class="campus-map-address">Delhi 110007</p>
+                    <a href="https://maps.app.goo.gl/vBt22ewNio5CHT8k8" target="_blank" rel="noopener noreferrer" class="campus-map-link">View Larger Map <span class="campus-link-arrow">➔</span></a>
+                </div>
+                <img src="images/campusmap.jpg" alt="OLDC Map Location" class="campus-map-img">
+                <div class="campus-zoom-controls">
+                    <button class="campus-zoom-btn">+</button>
+                    <button class="campus-zoom-btn">−</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="campus-highlights-section">
+    <h2 class="campus-section-title campus-underline">Campus Highlights</h2>
+    <div class="campus-highlights-grid">
+        <div class="campus-highlight-item">
+            <img src="images/section1visitus.jpg" alt="Smart Classrooms" class="campus-bg-img">
+            <div class="campus-highlight-overlay">
+                <div class="campus-icon-circle">
+                    <img src="images/bulbicon.png" alt="icon">
+                </div>
+                <h4 class="campus-item-title">Smart Classrooms</h4>
+            </div>
+        </div>
+
+        <div class="campus-highlight-item campus-active">
+            <img src="images/section2visitus.jpg" alt="Digital Libraries" class="campus-bg-img">
+            <div class="campus-highlight-overlay">
+                <div class="campus-icon-circle">
+                    <img src="images/bulbicon.png" alt="icon">
+                </div>
+                <h4 class="campus-item-title">Digital Libraries</h4>
+                <p class="campus-item-desc">Access to e-resources, journals, publications, and remote study material anytime.</p>
+            </div>
+        </div>
+
+        <div class="campus-highlight-item">
+            <img src="images/section3visitus.jpg" alt="E-Learning Studios" class="campus-bg-img">
+            <div class="campus-highlight-overlay">
+                <div class="campus-icon-circle">
+                    <img src="images/bulbicon.png" alt="icon">
+                </div>
+                <h4 class="campus-item-title">E-Learning Studios</h4>
+            </div>
+        </div>
+
+        <div class="campus-highlight-item">
+            <img src="images/section4visitus.jpg" alt="Seminar Halls" class="campus-bg-img">
+            <div class="campus-highlight-overlay">
+                <div class="campus-icon-circle">
+                    <img src="images/bulbicon.png" alt="icon">
+                </div>
+                <h4 class="campus-item-title">Seminar Halls</h4>
+            </div>
+        </div>
+
+        <div class="campus-highlight-item">
+            <img src="images/section5visitus.jpg" alt="COL Radio Studio" class="campus-bg-img">
+            <div class="campus-highlight-overlay">
+                <div class="campus-icon-circle">
+                    <img src="images/bulbicon.png" alt="icon">
+                </div>
+                <h4 class="campus-item-title">COL Radio Studio</h4>
+            </div>
+        </div>
+
+        <div class="campus-highlight-item">
+            <img src="images/section6visitus.jpg" alt="ET Lab" class="campus-bg-img">
+            <div class="campus-highlight-overlay">
+                <div class="campus-icon-circle">
+                    <img src="images/bulbicon.png" alt="icon">
+                </div>
+                <h4 class="campus-item-title">ET Lab</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section class="campus-visual-archive">
+        <div class="campus-archive-container">
+            <div class="campus-archive-intro">
+                <span class="campus-label-top">VISUAL ARCHIVE <span class="campus-gold-line"></span></span>
+                <h2 class="campus-archive-title">Life Around Campus</h2>
+                <p class="campus-archive-text">A glimpse into the everyday energy, creativity, and community that shapes the OLDC experience.</p>
+                <button class="campus-gallery-btn">See Gallery</button>
+            </div>
+            <div class="campus-masonry-gallery">
+                <div class="campus-gallery-col">
+                    <img src="images/section1campus.jpg" alt="Campus lounge" class="campus-gallery-img">
+                    <img src="images/section2campus.jpg" alt="Radio recording" class="campus-gallery-img">
+                </div>
+                <div class="campus-gallery-col campus-offset-top">
+                    <img src="images/section3campus.jpg" alt="Students at computer" class="campus-gallery-img">
+                    <img src="images/section4campus.png" alt="Lecture hall" class="campus-gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+</div>
+
+</section>
+
+
+
+
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About</a></li>
+        <li><a href="#">Foreign Language Courses</a></li>
+        <li><a href="#">Job Ready Skill Courses</a></li>
+        <li><a href="#">Internship</a></li>
+        <li><a href="#">Research & Development</a></li>
+        <li><a href="#">Facilities</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Address:</h4>
+      <p>OLDC Second Floor, ARC Building, University of Delhi, <br/> Opposite S.G.T.B. Khalsa College, Delhi, 110007</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Phone:</h4>
+      <p>011-27008300</p>
+      <h4>Email:</h4>
+      <p>skillcentre.cisbc@col.du.ac.in</p>
+      
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="footer-divider">
+
+  <div class="footer-bottom">
+    <p>&copy; OLDC All Rights Reserved. | Designed by OLDC</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+
+</html>

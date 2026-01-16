@@ -40,26 +40,26 @@
 
         <nav class="navigation">
             <ul>
-                <li><a href="#" >Home</a></li>
+                <li><a href="index.html" >Home</a></li>
                 <li class="dropdown active">
-  <a href="javascript:void(0)" id="about-link">About ▾</a>
+  <a href="javascript:void(0)" id="about-link" >About ▾</a>
   
   <div class="mega-menu" id="mega-menu-box">
     <div class="mega-content">
       <div class="column">
-        <a href="#" >About OLDC</a>
-        <a href="#">Leadership & Governance</a>
-        <a href="#">Partnerships</a>
+         <a href="#" onclick="window.location.href='aboutus.html';" >About OLDC</a>
+        <a href="#" onclick="window.location.href='aboutoldc.html';">Leadership & Governance</a>
+        <a href="#" onclick="window.location.href='partnerships.html';" >Partnerships</a>
       </div>
       <div class="column">
         <a href="#">Milestones & Achievements</a>
-        <a href="#">Institutional Foundation & Vision</a>
-        <a href="#">Research & Innovation</a>
+        <a href="#" onclick="window.location.href='institutionalfoundation.html';" style="cursor: pointer;">Institutional Foundation & Vision</a>
+        <a href="#" onclick="window.location.href='research.html';" >Research & Innovation</a>
       </div>
       <div class="column">
-        <a href="#">Press & Media</a>
-        <a href="#">Campus</a>
-        <a href="#">Community & Social Impact</a>
+        <a href="#" onclick="window.location.href='press.html';" >Press & Media</a>
+        <a href="#" onclick="window.location.href='campus.html';" >Campus</a>
+        <a href="#" onclick="window.location.href='community.html';" >Community & Social Impact</a>
       </div>
     </div>
   </div>
@@ -67,14 +67,33 @@
                 <li><a href="#">Courses ▾</a></li>
                 <li><a href="#">Internship ▾</a></li>
                 <li><a href="#">Facilities ▾</a></li>
-     <li class="search-box">
+  <li class="search-box">
     <input type="text" id="mainSearch" placeholder="Type here..." >
     <i class="fa-solid fa-magnifying-glass" id="searchBtn"  ></i>
 </li>
-
         </nav>
     </div>
 </header>
+
+
+<section class="institutional-milestone-banner">
+    <div class="institutional-milestone-container">
+        <div class="institutional-milestone-border-box">
+            <div class="institutional-milestone-header">
+                <h2 class="institutional-milestone-title">Key Milestones</h2>
+                <p class="institutional-milestone-top-desc">Built on the principle that education should transcend geography, age, and circumstance, the institution began with a small team of educators determined to bring flexible learning opportunities to underserved communities across India.</p>
+            </div>
+            
+            <div class="institutional-timeline-graphic">
+                <div class="institutional-arc-year">2020</div>
+                <p class="institutional-center-desc">OLDC/CDU is established, marking the beginning of India’s modern open learning initiative OLDC/CDU was established in 2000 with a vision to democratize higher education through open and distance learning.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 
 
 
@@ -118,6 +137,7 @@
     <p>&copy; OLDC All Rights Reserved. | Designed by OLDC</p>
   </div>
 </footer>
+<script src="script.js"></script>
 </body>
 
 </html>

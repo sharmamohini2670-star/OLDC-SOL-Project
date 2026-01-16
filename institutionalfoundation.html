@@ -48,7 +48,7 @@
 
         <nav class="navigation">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li class="dropdown active">
   <a href="javascript:void(0)" id="about-link" >About ▾</a>
   
@@ -57,17 +57,17 @@
       <div class="column">
         <a href="#" onclick="window.location.href='aboutus.html';" >About OLDC</a>
         <a href="#" onclick="window.location.href='aboutoldc.html';">Leadership & Governance</a>
-        <a href="#">Partnerships</a>
+        <a href="#" onclick="window.location.href='partnerships.html';" >Partnerships</a>
       </div>
       <div class="column">
         <a href="#">Milestones & Achievements</a>
         <a href="#" class="highlight" onclick="window.location.href='institutionalfoundation.html';" style="cursor: pointer;">Institutional Foundation & Vision</a>
-        <a href="#">Research & Innovation</a>
+        <a href="#"onclick="window.location.href='research.html';">Research & Innovation</a>
       </div>
       <div class="column">
-        <a href="#">Press & Media</a>
-        <a href="#">Campus</a>
-        <a href="#">Community & Social Impact</a>
+        <a href="#" onclick="window.location.href='press.html';" >Press & Media</a>
+        <a href="#" onclick="window.location.href='campus.html';" >Campus</a>
+        <a href="#" onclick="window.location.href='community.html';" >Community & Social Impact</a>
       </div>
     </div>
   </div>
@@ -97,7 +97,12 @@
 
 <section class="institutional-main-container">
     <div class="breadcrumb">
-        <p><i class="fas fa-home" style="color: purple;"></i> Home > <span>About OLDC</span> > <span class="active-crumb">Institutional Foundation & Vision</span></p>
+          <p>
+        <a href="index.html" style="cursor: pointer;text-decoration: none;"><i class="fas fa-home" style="color: purple;"></i> Home</a> > 
+        <a href="aboutus.html" style="cursor: pointer;text-decoration: none;">About OLDC</a> > 
+        <a href="institutionalfoundation.html" style="cursor: pointer;text-decoration: none;"> Institutional Foundation & Vision</a>
+    </p>
+      
     </div>
 
     <div class="institutional-page-container">
@@ -107,12 +112,12 @@
                     <li onclick="window.location.href='aboutus.html';">About OLDC</li>
                     <li onclick="window.location.href='aboutoldc.html';">Leadership & Governance</li>
                     <li class="institutional-active">Institutional Foundation & Vision</li>
-                    <li>Milestones & Achievements</li>
-                    <li>Research & Innovation</li>
-                    <li>Partnerships</li>
-                    <li>Press & Media</li>
-                    <li>Campus</li>
-                    <li>Community & Social Impact</li>
+                  <!--  <li>Milestones & Achievements</li> -->
+                    <li onclick="window.location.href='research.html';" style="cursor: pointer;">Research & Innovation</li>
+                 <li onclick="window.location.href='partnerships.html';">Partnerships</li>
+        <li onclick="window.location.href='press.html';">Press & Media</li>
+        <li onclick="window.location.href='campus.html';">Campus</li>
+        <li onclick="window.location.href='community.html';">Community & Social Impact</li>
                 </ul>
             </nav>
         </aside>

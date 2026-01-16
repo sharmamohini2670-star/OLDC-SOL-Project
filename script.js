@@ -1,23 +1,31 @@
-//Mega Menu Toggle Functionality
+// Mega Menu Functionality OF about Section
 document.addEventListener('DOMContentLoaded', function() {
+ 
     const aboutLink = document.getElementById('about-link');
     const megaMenu = document.getElementById('mega-menu-box');
 
-    // Toggle menu on click
-    aboutLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation(); // Stops the click from bubbling to the window
-        megaMenu.classList.toggle('is-visible');
-    });
+    if (aboutLink && megaMenu) {
+        aboutLink.addEventListener('click', function(e) {
+          console.log("About Link Clicked!");
+            e.preventDefault();
+            e.stopPropagation();
+            megaMenu.classList.toggle('is-visible');
+           
+        });
 
-    // Close menu when clicking outside
-    window.addEventListener('click', function(e) {
-        if (!megaMenu.contains(e.target) && e.target !== aboutLink) {
-            megaMenu.classList.remove('is-visible');
-        }
-    });
+        window.addEventListener('click', function(e) {
+            if (!megaMenu.contains(e.target) && e.target !== aboutLink) {
+                megaMenu.classList.remove('is-visible');
+               
+            }
+        });
+    } else {
+        console.error("Breadcrumb elements not found on this page!");
+    }
 });
-// Flashcard Carousel Functionality
+
+
+// Flashcard Carousel Functionality -  About us section
 const cardData = [
   {
     title: "ET Lab",
@@ -67,3 +75,81 @@ prevBtn.addEventListener('click', () => {
     updateCard(currentIndex);
   }
 });
+
+/*
+const searchData = [
+    { name: "Home", category: "Webpage", url: "/index.html" },
+    { name: "About OLDC", category: "Webpage", url: "/about.html" },
+    { name: "Leadership & Governance", category: "Webpage", url: "/leadership.html" },
+    { name: "Partnerships", category: "Webpage", url: "/partnerships.html" },
+    { name: "Research & Innovation", category: "Webpage", url: "/research.html" },
+    { name: "Campus Life", category: "Webpage", url: "/campus.html" },
+    { name: "Facilities", category: "Webpage", url: "/facilities.html" },
+    { name: "University of Delhi Portal", category: "Quick Link", url: "https://oldcdu.ac.in" },
+    { name: "Press & Media Updates", category: "News", url: "/press.html" }
+];
+
+const searchWrapper = document.getElementById('searchWrapper');
+const mainSearch = document.getElementById('mainSearch');
+const resultsList = document.getElementById('searchResults');
+let selectedIndex = -1;
+
+function toggleSearch(event) {
+    event.stopPropagation(); 
+    
+    const isActive = searchWrapper.classList.toggle('active');
+    
+    if (isActive) {
+        mainSearch.focus(); 
+    } else {
+        closeSearch();
+    }
+}
+
+mainSearch.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    selectedIndex = -1; 
+
+    if (query === "") {
+        resultsList.classList.remove('show');
+        return;
+    }
+
+    const filtered = searchData.filter(item => 
+        item.name.toLowerCase().includes(query) || 
+        item.category.toLowerCase().includes(query)
+    );
+    
+    renderResults(filtered);
+});
+
+function renderResults(data) {
+    resultsList.innerHTML = "";
+    if (data.length === 0) {
+        resultsList.innerHTML = `<li class="result-item">No results match</li>`;
+    } else {
+        data.forEach((item) => {
+            const li = document.createElement('li');
+            li.className = 'result-item';
+            li.innerHTML = `<span class="result-category">${item.category}</span>
+                            <span class="result-name">${item.name}</span>`;
+            li.onclick = () => window.location.href = item.url;
+            resultsList.appendChild(li);
+        });
+    }
+    resultsList.classList.add('show');
+}
+
+document.addEventListener('click', (e) => {
+    if (!searchWrapper.contains(e.target)) {
+        closeSearch();
+    }
+});
+
+function closeSearch() {
+    searchWrapper.classList.remove('active');
+    resultsList.classList.remove('show');
+    mainSearch.value = "";
+}
+
+*/
