@@ -53,9 +53,11 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 function updateCard(index) {
- 
+  // Update Content
   titleEl.textContent = cardData[index].title;
   textEl.textContent = cardData[index].text;
+
+  // Visual feedback: Toggle 'active' class for arrows
   prevBtn.classList.toggle('active', index > 0);
   nextBtn.classList.toggle('active', index < cardData.length - 1);
 }
