@@ -39,7 +39,11 @@ body {
     padding: 0 20px;
     width: 100%;
 }
-
+.main-header {
+    position: relative;
+    z-index: 100; 
+    overflow: visible !important; 
+}
 /* making main header sticky 
 .main-header {
     position: -webkit-sticky; 
@@ -67,7 +71,6 @@ body {
 .top-bar {
   background: #f8f8f8;
   border-bottom: 1px solid #ddd;
-  padding: 4px 0; 
   font-size: 13px;
   width: 100%;
  
